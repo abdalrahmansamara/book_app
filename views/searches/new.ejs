@@ -1,0 +1,50 @@
+<!-- general templating is from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_mobile_navbar -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="styles/reset.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
+
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <a class="active">Best Books!</a>
+  <div id="myLinks">
+    <a href="/">Home</a>
+    <a href="/new">Search</a>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+<div>
+  <h3>Search by title or Author</h3>
+</div>
+
+<form action="/searches" method="POST">
+  <input type="text" name="name" placeholder="Enter a title or Author">
+  <div>
+  <label for="title"> Title
+    <input type="radio" name="choose" value="intitle">
+  </label>
+</div>
+<div>
+  <label for="author"> Author
+    <input type="radio" name="choose" value="inauthor">
+  </label>
+</div>
+<button>Search the Google Books API</button>
+</form>
+</div>
+
+
+<script src="js/app.js"></script>
+</body>
+</html>
+x
