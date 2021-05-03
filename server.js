@@ -8,8 +8,8 @@ const pg = require('pg');
 server.set('view engine','ejs')
 server.use(express.static('./public'))
 server.use(express.urlencoded({extended:true}));
-const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
-// const client = new pg.Client(process.env.DATABASE_URL)
+// const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
+const client = new pg.Client(process.env.DATABASE_URL)
 
 const PORT = process.env.PORT || 3000;
 
