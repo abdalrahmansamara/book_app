@@ -79,3 +79,36 @@ p{
   align-items: center;
   margin: auto;
 }
+input{
+  /* color: #ddd; */
+  background-color: white;
+  display: block;
+  margin: 10px auto;
+  padding: 20px;
+  /* columns: 10;
+  rows: 10; */
+  width: 80%;
+}
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  width: 80%;
+}
+.input_radio{
+  display: block;
+  margin: 10px auto;
+  padding: 15px;
+  background-color: rgb(141, 131, 129);
+  color: white;
+  width: 80%;
+}
+.input_radio input{
+  display: inline-block;
+  padding: 0px;
+  margin: 10px auto;  background-color: black;
+  color: white;
+  width: 80%;
+}
