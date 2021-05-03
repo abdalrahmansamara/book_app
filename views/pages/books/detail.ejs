@@ -3,7 +3,6 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="stylesheet" href="styles/reset.css"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -24,28 +23,20 @@
   </a>
 </div>
 <div>
-  <h3>Search Results</h3>
+  <h3>Book Details</h3>
 </div>
-<h3>Total books: <%=data.length%></h3>
 
-<% data.forEach(element => {  %>
-  <div class="disp">
-      <img src="<%= element.image_url %>" alt="">
-      <h2><%=element.title%></h2>
-      <h4> <%=element.author%> </h4>
-      <p> <%=element.description%> </p>
-      <p> <%=element.ISBN%> </p>
-              
-      <form action="/books/<%=element.id%>">
-        <button type="submit"> Show Details </button>
-      </form>
-  </div>
-<%  })   %>
-
+<div class="disp">
+    <img src="<%= single.image_url %>" alt="">
+    <h2><%=single.title%></h2>
+    <h4> <%=single.author%> </h4>
+    <p> <%=single.description%> </p>
+    <h6> <%=single.ISBN%> </h6>
+</div>
 
 </div>
 
 
-<script src="js/app.js"></script>
+<script src="../js/app.js"></script>
 </body>
 </html>
