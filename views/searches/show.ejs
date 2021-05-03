@@ -32,6 +32,16 @@
         <h2><%=element.title%></h2>
         <h4> <%=element.author%> </h4>
         <p> <%=element.description%> </p>
+        <p> <%=element.ISBN%> </p>
+                
+        <form action="/books" method="POST">
+          <input type="hidden" name="image_url" value="<%= element.image_url %>">
+          <input type="hidden" name="title" value="<%=element.title%>">
+          <input type="hidden" name="author" value="<%=element.author%>">
+          <input type="hidden" name="description" value="<%=element.description%>">
+          <input type="hidden" name="ISBN" value="<%=element.ISBN%>">
+          <button type="submit"> Add to Bookshelf </button>
+        </form>
     </div>
 <%  })   %>
 </div>
