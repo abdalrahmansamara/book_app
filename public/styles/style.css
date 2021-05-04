@@ -112,3 +112,8 @@ button {
   color: white;
   width: 80%;
 }
+textarea {
+  display: block;
+  width: 85%;
+  margin: auto;
+}
