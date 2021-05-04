@@ -31,12 +31,30 @@
     <h2><%=single.title%></h2>
     <h4> <%=single.author%> </h4>
     <p> <%=single.description%> </p>
-    <h6> <%=single.ISBN%> </h6>
+    <p> <%=single.isbn%> </h6>
 </div>
 
+<form action="/deleteBook/<%=single.id%>?_method=delete" method="POST" >
+  <button>Delete the Book</button>
+</form>
+
+<button id="showForm">Update</button>
+<section id="updateForm">
+<form action="/updateBook/<%=single.id%>?_method=put" method="POST">
+  <input type="text" name="image_url" value="<%= single.image_url %>">
+  <input type="text" name="title" value="<%=single.title%>">
+  <input type="text" name="author" value="<%=single.author%>">
+  <textarea name="description" cols="30" rows="10"><%=single.description %></textarea>
+  <input type="text" name="ISBN" value="<%=single.isbn%>">
+  <button>Update Book</button>
+</form>
+</section>
+
+
+
 </div>
-
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../js/app.js"></script>
+<script src="../js/details.js"></script>
 </body>
 </html>
