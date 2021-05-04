@@ -8,8 +8,8 @@ const pg = require('pg');
 server.set('view engine','ejs')
 server.use(express.static('./public'))
 server.use(express.urlencoded({extended:true}));
-const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
-// const client = new pg.Client(process.env.DATABASE_URL)
+// const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
+const client = new pg.Client(process.env.DATABASE_URL)
 
 const PORT = process.env.PORT || 3000;
 
@@ -79,14 +79,18 @@ function singleBookRender (req,res) {
     })
 }
 
+
+// error handler
 function errorHandler (req,res) {
     res.render('pages/error')
 }
 
+
+
 function Book (element) {
-    this.title = element.title || `title is not available`;
-    this.author = element.authors || `author name not found`;
-    this.description = element.description || `there is no description`;
+    this.title = element.title ? element.title :  `title is not available`;
+    this.author = element.authors ? element.authors.join(', ') : `author name not found`;
+    this.description = element.description ? element.description : `there is no description`;
     this.image_url = element.imageLinks.thumbnail || element.imageLinks.smallThumbnail || `https://i.imgur.com/J5LVHEL.jpg`; 
-    this.ISBN = `ISBN type: ${element.industryIdentifiers[0].type}, identifier: ${element.industryIdentifiers[0].identifier}` || `ISBN not found`
+    this.ISBN = element.industryIdentifiers ? `ISBN type: ${element.industryIdentifiers[0].type}, identifier: ${element.industryIdentifiers[0].identifier}` : `ISBN not found`
 }
