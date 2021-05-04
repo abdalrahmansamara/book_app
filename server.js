@@ -14,9 +14,9 @@ const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: 
 const PORT = process.env.PORT || 3000;
 
 client.connect()
-.then(
+.then( () => {
 server.listen(PORT, () => { console.log(`you are listining to port ${PORT}`)})
-)
+})
 server.get('/',homePage)
 server.get('/hello', indexRender)
 server.get('/new', newHandler)
@@ -88,5 +88,5 @@ function Book (element) {
     this.author = element.authors || `author name not found`;
     this.description = element.description || `there is no description`;
     this.image_url = element.imageLinks.thumbnail || element.imageLinks.smallThumbnail || `https://i.imgur.com/J5LVHEL.jpg`; 
-    this.ISBN = `${element.industryIdentifiers[0].type}  ${element.industryIdentifiers[0].identifier}`
+    this.ISBN = `ISBN type: ${element.industryIdentifiers[0].type}, identifier: ${element.industryIdentifiers[0].identifier}` || `ISBN not found`
 }
